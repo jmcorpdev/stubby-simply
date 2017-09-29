@@ -1,8 +1,4 @@
 {
-  "quiet": {
-    "alias": "q",
-    "describe": "Quiet"
-  },
   "mocks": {
     "alias": "m",
     "describe": "Mocks folder"
@@ -10,5 +6,40 @@
   "logLevel": {
     "alias": "l",
     "describe": "Logging level (error, warn, info, verbose, debug, silly)"
+  },
+  "admin": {
+    "alias": "a",
+    "describe": "<port> Port for admin portal. Defaults to 8889."
+  },
+  "cert": {
+    "alias": "c",
+    "describe": "Stubby Argument : <file> Certificate file. Use with --key."
+  },
+  "key": {
+    "alias": "k",
+    "describe": "Stubby Argument : <file>  Private key file. Use with --cert."
+  },
+  "location": {
+    "alias": "l",
+    "describe": "Stubby Argument : <hostname> Hostname at which to bind stubby."
+  },
+  "quiet": {
+    "alias": "q",
+    "describe": "Stubby Argument : Prevent stubby from printing to the console."
+  },
+  "pfx": {
+    "alias": "p",
+    "describe":
+      "Stubby Argument : <file> PFX file. Ignored if used with --key/--cert"
+  },
+  "stubs": {
+    "alias": "s",
+    "describe":
+      "Stubby Argument : <port> Port for stubs portal. Defaults to 8882."
+  },
+  "tls": {
+    "alias": "t",
+    "describe":
+      "Stubby Argument : <port> Port for https stubs portal. Defaults to 7443."
   }
 }

@@ -1,8 +1,7 @@
 {
   "name": "stubby-simply",
-  "version": "0.1.0",
-  "description":
-    "Stubby with simple configuration and multiples mocks files instead of 1 file",
+  "version": "0.1.1",
+  "description": "Stubby with simple configuration and multiples mocks files instead of 1 file",
   "license": "MIT",
   "author": "Arnaud Guéras <arnaudgs@gmail.com>",
   "main": "babel/stubby-simply.js",
@@ -10,12 +9,10 @@
     "stubby-simply": "./bin/stubby-simply.js"
   },
   "scripts": {
-    "babel":
-      "./node_modules/.bin/babel src --out-dir babel --source-maps inline",
+    "babel": "./node_modules/.bin/babel src --out-dir babel --source-maps inline",
     "start": "npm run babel && ./bin/stubby-simply.js",
     "jscs": "./node_modules/.bin/jscs src test config",
-    "release":
-      "npm test && npm run babel && ./node_modules/.bin/release-it -c config/release.json"
+    "release": "npm test && npm run babel && ./node_modules/.bin/release-it -c config/release.json"
   },
   "dependencies": {
     "js-yaml": "^3.10.0",

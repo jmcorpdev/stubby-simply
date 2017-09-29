@@ -66,7 +66,14 @@ export class Job {
         data: createMockFile(mocksFolder),
         persistent: true,
         quiet: nconf.get("quiet"),
-        watch: tmpMockFile.name
+        watch: tmpMockFile.name,
+        admin: nconf.get("admin"),
+        cert: nconf.get("cert"),
+        key: nconf.get("key"),
+        location: nconf.get("location"),
+        pfx: nconf.get("pfx"),
+        stubs: nconf.get("stubs"),
+        tls: nconf.get("tls")
       });
 
       watch(mocksFolder, { recursive: true }, function(evt, name) {
