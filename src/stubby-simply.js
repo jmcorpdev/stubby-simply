@@ -29,13 +29,12 @@ export class Job {
   run() {
     // Prompt for missing configurations and continue with application logic...
     let tmpMockFile = tmp.fileSync();
-
-    function createMockFile(mocks) {
-      console.log("mocks", mocks);
-      console.log("path", path.join(mocks, "**/*.{yaml,json}"));
+    let mocksFolder;
+    function createMockFile(mocksFolder) {
+      let mocks = path.join(mocksFolder, "**/*.{yaml,json}");
 
       let datas = shell
-        .ls(path.join(mocks, "**/*.{yaml,json}"))
+        .ls(mocks)
         .map(filepath => {
           if (/\.yaml$/.test(filepath)) {
             return jsyaml.load(shell.cat(filepath));
@@ -53,33 +52,27 @@ export class Job {
     return inquire().then(nconf => {
       // verify mock folder
       let mocks = nconf.get("mocks");
-      if (!fs.existsSync(mocks)) {
-        winston.error(`There is no folder ${mocks}`);
+      console.log(process.cwd());
+      mocksFolder = path.join(process.cwd(), mocks);
+      console.log("mocksfolder", mocksFolder);
+      if (!fs.existsSync(mocksFolder)) {
+        winston.error("There is no folder " + mocksFolder);
         process.exit(1);
       }
-
       let Stubby = require("stubby").Stubby;
       let stubby = new Stubby();
 
       stubby.start({
-        data: createMockFile(nconf.get("mocks")),
+        data: createMockFile(mocksFolder),
         persistent: true,
         quiet: nconf.get("quiet"),
         watch: tmpMockFile.name
       });
 
-      watch("mocks/", { recursive: true }, function(evt, name) {
-        createMockFile(nconf.get("mocks"));
+      watch(mocksFolder, { recursive: true }, function(evt, name) {
+        createMockFile(mocksFolder);
       });
 
-      /*winston.log("info", "Retrieved credentials from nconf");
-      winston.log("debug", `Username: ${username}`);
-
-      winston.log("silly", "(__)");
-      winston.log("silly", `(oo) <-- ${username}`);
-      winston.log("silly", " \\/");
-
-      winston.log("info", "Job complete.");*/
       return "ok";
     });
   }
