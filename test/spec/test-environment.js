@@ -1,8 +1,6 @@
+import { expect, sinon } from "../support/test-utils";
 
-import { expect, sinon } from '../support/test-utils';
-
-describe('test environment unit tests', function() {
-
+describe("test environment unit tests", function() {
   it('"describe" and "it" defined', function() {
     // if we've gotten this far without error... SUCCESS!
   });
@@ -29,5 +27,4 @@ describe('test environment unit tests', function() {
       expect(stub).to.be.calledOnce;
     }).to.throw(Error);
   });
-
 });

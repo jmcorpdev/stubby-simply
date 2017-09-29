@@ -70,6 +70,6 @@
   "requireSemicolons": true,
   "safeContextKeyword": "_this",
   "validateLineBreaks": "LF",
-  "validateQuoteMarks": { "mark": "'", "escape": true, "ignoreJSX": true },
+  "validateQuoteMarks": { "mark": "\"", "escape": true, "ignoreJSX": true },
   "validateIndentation": 2
 }

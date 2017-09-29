@@ -2,3 +2,4 @@ node_modules/
 babel/
 coverage/
 npm-debug.log
+.idea/
