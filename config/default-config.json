@@ -1,3 +1,5 @@
 {
+  "quiet": false,
+  "mocks": "./mocks",
   "logLevel": "info"
 }

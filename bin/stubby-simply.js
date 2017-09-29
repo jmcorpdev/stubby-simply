@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 const winston = require("winston");
-const job = require("../babel/job").default;
+const stubby = require("../babel/stubby-simply").default;
 
-job.configure();
-job.run().catch(err => {
+stubby.configure();
+stubby.run().catch(err => {
   winston.log("error", err);
   process.exit(1);
 });

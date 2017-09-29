@@ -1,0 +1,8 @@
+  request:
+    url: /image/(.+)
+    method: GET
+  response:
+    headers:
+      content-type: image/png
+    file: mocks/images/<%url[1]%>
+

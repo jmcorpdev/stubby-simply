@@ -1,12 +1,11 @@
 {
-  "username": {
-    "alias": "u",
-    "describe": "Username",
-    "demand": true
+  "quiet": {
+    "alias": "q",
+    "describe": "Quiet"
   },
-  "password": {
-    "alias": "p",
-    "describe": "Password"
+  "mocks": {
+    "alias": "m",
+    "describe": "Mocks folder"
   },
   "logLevel": {
     "alias": "l",

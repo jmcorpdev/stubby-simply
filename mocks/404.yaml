@@ -1,0 +1,9 @@
+request:
+  url: /test404
+  method: GET
+
+response:
+  status: 404
+  body: "404"
+
+
