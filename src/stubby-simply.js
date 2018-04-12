@@ -38,10 +38,20 @@ export class Job {
         .ls(mocks)
         .map(filepath => {
           if (/\.yaml$/.test(filepath)) {
-            return jsyaml.load(shell.cat(filepath));
+            try {
+              return jsyaml.load(shell.cat(filepath));
+            } catch (e) {
+              console.error(e);
+              return null;
+            }
           }
           if (/\.(js|json)$/.test(filepath)) {
-            return require(filepath);
+            try {
+              return require(filepath);
+            } catch (e) {
+              console.error(e);
+              return null;
+            }
           }
           return null;
         })
@@ -77,7 +87,7 @@ export class Job {
         tls: nconf.get("tls")
       });
 
-      watch(mocksFolder, {recursive: true}, function (evt, name) {
+      watch(mocksFolder, { recursive: true }, function(evt, name) {
         let cleanedName = name.replace(/\.(js|json|yaml).+?$/, ".$1");
         if (name == cleanedName) {
           console.log("Stubby-simply mock changed: ", cleanedName);

@@ -8,7 +8,7 @@ module.exports = {
     "status": 200,
     "body": {
       "Data": {
-        "Hello": "world"
+        "Hello": "world2"
       }
     }
   }
