@@ -1,6 +1,6 @@
 {
   "name": "stubby-simply",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Stubby with simple configuration and multiples mocks files instead of 1 file",
   "license": "MIT",
   "author": "arnogues <arnaudgs@gmail.com>",
