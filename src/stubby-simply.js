@@ -31,7 +31,7 @@ export class Job {
     let tmpMockFile = tmp.fileSync();
     let mocksFolder;
     function createMockFile(mocksFolder) {
-      let mocks = path.join(mocksFolder, "**/*.{yaml,json}");
+      let mocks = path.join(mocksFolder, "**/*.{yaml,json,js}");
 
       let datas = shell
         .ls(mocks)
@@ -39,7 +39,7 @@ export class Job {
           if (/\.yaml$/.test(filepath)) {
             return jsyaml.load(shell.cat(filepath));
           }
-          if (/\.json$/.test(filepath)) {
+          if (/\.(js|json)$/.test(filepath)) {
             return require(filepath);
           }
           return null;
