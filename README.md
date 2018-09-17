@@ -2,7 +2,6 @@
 
 ## Install
 
-
 ```bash
 npm install stubby-simply --save-dev
 npm install npm-run-all --save
@@ -43,7 +42,6 @@ Add rename some scripts in the npm scripts part in `package.json`
 
 Beware about the `-p` it is used to launch all scripts in parallel
 
-
-
 ## Contribution
+
 Contribution documentation can be found in [contributing file](CONTRIBUTING.md).

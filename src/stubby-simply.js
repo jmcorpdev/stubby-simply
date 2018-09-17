@@ -1,4 +1,4 @@
-import {nconf, inquire} from "nquirer";
+import { nconf, inquire } from "nquirer";
 import winston from "winston";
 
 import shell from "shelljs";
@@ -87,7 +87,7 @@ export class Job {
         tls: nconf.get("tls")
       });
 
-      watch(mocksFolder, { recursive: true }, function (evt, name) {
+      watch(mocksFolder, { recursive: true }, function(evt, name) {
         let cleanedName = name.replace(/\.(js|json|yaml).+?$/, ".$1");
         if (name == cleanedName) {
           console.log("Stubby-simply mock changed: ", cleanedName);
