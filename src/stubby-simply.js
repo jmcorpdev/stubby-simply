@@ -87,11 +87,15 @@ export class Job {
         tls: nconf.get("tls")
       });
 
-      watch(mocksFolder, { recursive: true }, function(evt, name) {
+      watch(mocksFolder, { recursive: true }, function (evt, name) {
         let cleanedName = name.replace(/\.(js|json|yaml).+?$/, ".$1");
         if (name == cleanedName) {
           console.log("Stubby-simply mock changed: ", cleanedName);
-          delete require.cache[require.resolve(cleanedName)];
+          try {
+            delete require.cache[require.resolve(cleanedName)];
+          } catch (e) {
+            console.log(cleanedName + " is new and has never been cached");
+          }
         }
         createMockFile(mocksFolder);
       });
