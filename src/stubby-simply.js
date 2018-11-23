@@ -30,17 +30,28 @@ export class Job {
     // Prompt for missing configurations and continue with application logic...
     let tmpMockFile = tmp.fileSync();
     let mocksFolder;
+
     function createMockFile(mocksFolder) {
-      let mocks = path.join(mocksFolder, "**/*.{yaml,json}");
+      let mocks = path.join(mocksFolder, "**/*.{yaml,json,js}");
 
       let datas = shell
         .ls(mocks)
         .map(filepath => {
           if (/\.yaml$/.test(filepath)) {
-            return jsyaml.load(shell.cat(filepath));
+            try {
+              return jsyaml.load(shell.cat(filepath));
+            } catch (e) {
+              console.error(e);
+              return null;
+            }
           }
-          if (/\.json$/.test(filepath)) {
-            return require(filepath);
+          if (/\.(js|json)$/.test(filepath)) {
+            try {
+              return require(filepath);
+            } catch (e) {
+              console.error(e);
+              return null;
+            }
           }
           return null;
         })
@@ -77,6 +88,15 @@ export class Job {
       });
 
       watch(mocksFolder, { recursive: true }, function(evt, name) {
+        let cleanedName = name.replace(/\.(js|json|yaml).+?$/, ".$1");
+        if (name == cleanedName) {
+          console.log("Stubby-simply mock changed: ", cleanedName);
+          try {
+            delete require.cache[require.resolve(cleanedName)];
+          } catch (e) {
+            console.log(cleanedName + " is new and has never been cached");
+          }
+        }
         createMockFile(mocksFolder);
       });
 

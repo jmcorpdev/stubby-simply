@@ -29,17 +29,14 @@
   },
   "pfx": {
     "alias": "p",
-    "describe":
-      "Stubby Argument : <file> PFX file. Ignored if used with --key/--cert"
+    "describe": "Stubby Argument : <file> PFX file. Ignored if used with --key/--cert"
   },
   "stubs": {
     "alias": "s",
-    "describe":
-      "Stubby Argument : <port> Port for stubs portal. Defaults to 8882."
+    "describe": "Stubby Argument : <port> Port for stubs portal. Defaults to 8882."
   },
   "tls": {
     "alias": "t",
-    "describe":
-      "Stubby Argument : <port> Port for https stubs portal. Defaults to 7443."
+    "describe": "Stubby Argument : <port> Port for https stubs portal. Defaults to 7443."
   }
 }
