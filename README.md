@@ -4,7 +4,6 @@
 
 ```bash
 npm install stubby-simply --save-dev
-npm install npm-run-all --save
 ```
 
 ## Configure your `package.json`
