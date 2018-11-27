@@ -18,17 +18,17 @@
     "js-yaml": "^3.10.0",
     "node-watch": "^0.5.5",
     "nquirer": "0.1.8",
-    "shelljs": "^0.7.8",
+    "shelljs": "^0.8.3",
     "stubby": "^4.0.0",
     "tmp": "0.0.33",
-    "winston": "^2.3.1"
+    "winston": "^3.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-register": "^6.26.0",
     "jscs": "3.0.7",
-    "release-it": "2.4.3",
+    "release-it": "8.0.1",
     "watch": "^1.0.2",
     "watch-filter": "1.0.2"
   },
