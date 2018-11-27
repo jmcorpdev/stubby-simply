@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-git clone TODO
+git clone https://github.com/arnogues/stubby-simply.git
 cd stubby-simply
 npm install
 npm link
